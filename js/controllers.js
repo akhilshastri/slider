@@ -1,6 +1,8 @@
 /**
  * Created by admin on 8/20/2014.
  */
+
+// https://github.com/Fundoo-Solutions/angularjs-carousel
 angular.module('app.controllers', [])
     .controller('mainCnt', [ '$scope', function ($scope) {
         $scope.imagesPath = [
