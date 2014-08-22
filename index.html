@@ -3,9 +3,22 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/slick/slick.css"/>
     <link href="vendor/angular-carousel/angular-carousel.css" rel="stylesheet" type="text/css"/>
+    <style type="text/css">
+        .photo-carousel {
+            width: 500px;
+            height: 200px;
+        }
+
+        .photo-container {
+            width: 600px;
+            height: 250px;;
+        }
+    </style>
     <style>
+
         .box {
             margin: auto;
             padding: 20px;
@@ -59,7 +72,7 @@
 
 
 <div ng-app="app">
-    <div ng-controller="mainCnt">
+    <div ng-controller="mainCnt" style="background-color: #eee; font-size:18px">
         <ul rn-carousel class="image box">
             <li ng-repeat="image in imagesPath" ng-style="{ backgroundImage: 'url(' + image + ')' }">
                 <div class="layer">{{ image }}</div>
@@ -78,6 +91,21 @@
         <a href="" ng-click="prev()">Previous</a>
         <a href="" ng-click="next()">Next</a>
 
+
+        <div class="photo-container" data-carousel data-carousel-class="photo-carousel"
+             data-on-page-upcoming="loadPage(page, tmplCb)" data-give-carousel-to="onCarouselAvailable(carousel)">
+            <div class="photo-grid span12">
+        <span data-ng-repeat="photo in photos">
+          <img ng-src="{{getPhotoUrl(photo)}}">
+        </span>
+            </div>
+        </div>
+        <a style="float: left;" data-ng-show="hasPrevious()" data-ng-click="previous()">&lt;&lt; Previous</a>
+        <span style="float: left;" data-ng-hide="hasPrevious()">&lt;&lt; Previous</span>
+        <a style="float: left;" data-ng-show="hasNext()" data-ng-click="next()">Next &gt;&gt;</a>
+        <span style="float: left;" data-ng-hide="hasNext()">Next &gt;&gt;</span>
+
+
     </div>
 
 
@@ -91,6 +119,7 @@
 
 
 <script src="vendor/angular-carousel/angular-carousel.js"></script>
+<script src="vendor/angular-carousel/carousel.js"></script>
 
 <script src="js/controllers.js"></script>
 <script src="js/directives.js"></script>
