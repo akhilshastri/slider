@@ -4,98 +4,26 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="vendor/slick/slick.css"/>
-    <link href="vendor/angular-carousel/angular-carousel.css" rel="stylesheet" type="text/css"/>
+    <!--<link rel="stylesheet" href="vendor/slick/slick.css"/>-->
+
     <style type="text/css">
         .photo-carousel {
             width: 500px;
-            height: 200px;
+            height: 100px;
         }
-
         .photo-container {
-            width: 600px;
-            height: 250px;;
-        }
-    </style>
-    <style>
-
-        .box {
-            margin: auto;
-            padding: 20px;
             width: 300px;
-            height: 200px;
-
-        }
-        body {
-            background: #3498db;
-            color: #fff;
+            height: 150px;;
         }
     </style>
 </head>
-<body>
-
-<!--<div class="box your-class">
-    <div>your content1</div>
-    <div>your content2</div>
-    <div>your content3</div>
-    <div>your content4</div>
-    <div>your content5</div>
-    <div>your content6</div>
-    <div>your content7</div>
-    <div>your content8</div>
-    <div>your content9</div>
-</div>
-
-<hr/>
-<h2>Lazy Loading</h2>
-
-<div class="slider lazy box">
-    <div>
-        <div class="image"><img data-lazy="img/lazyfonz1.png"/></div>
-    </div>
-    <div>
-        <div class="image"><img data-lazy="img/lazyfonz2.png"/></div>
-    </div>
-    <div>
-        <div class="image"><img data-lazy="img/lazyfonz3.png"/></div>
-    </div>
-    <div>
-        <div class="image"><img data-lazy="img/lazyfonz4.png"/></div>
-    </div>
-    <div>
-        <div class="image"><img data-lazy="img/lazyfonz5.png"/></div>
-    </div>
-    <div>
-        <div class="image"><img data-lazy="img/lazyfonz6.png"/></div>
-    </div>
-</div>-->
-
-
-<div ng-app="app">
-    <div ng-controller="mainCnt" style="background-color: #eee; font-size:18px">
-        <ul rn-carousel class="image box">
-            <li ng-repeat="image in imagesPath" ng-style="{ backgroundImage: 'url(' + image + ')' }">
-                <div class="layer">{{ image }}</div>
-            </li>
-        </ul>
-
-        <div carousel
-             carousel-class="photo-carousel"
-             on-page-upcoming="loadPage(page, tmplCb)"
-             give-carousel-to="onCarouselAvailable(carousel)">
-            <div class="myCarouselPage">
-                Content goes here
-                {{scope.awesomeContent}}
-            </div>
-        </div>
-        <a href="" ng-click="prev()">Previous</a>
-        <a href="" ng-click="next()">Next</a>
-
-
-        <div class="photo-container" data-carousel data-carousel-class="photo-carousel"
-             data-on-page-upcoming="loadPage(page, tmplCb)" data-give-carousel-to="onCarouselAvailable(carousel)">
-            <div class="photo-grid span12">
+<body ng-app="app">
+<div ng-controller="carouselCtrl" style="background-color: #eee; font-size:18px">
+    <div class="photo-container" data-carousel data-carousel-class="photo-carousel"
+         data-on-page-upcoming="loadPage(page, tmplCb)" data-give-carousel-to="onCarouselAvailable(carousel)">
+        <div class="photo-grid span12">
         <span data-ng-repeat="photo in photos">
+            <!--{{getPhotoUrl(photo)}}-->
           <img ng-src="{{getPhotoUrl(photo)}}">
         </span>
             </div>
@@ -104,21 +32,15 @@
         <span style="float: left;" data-ng-hide="hasPrevious()">&lt;&lt; Previous</span>
         <a style="float: left;" data-ng-show="hasNext()" data-ng-click="next()">Next &gt;&gt;</a>
         <span style="float: left;" data-ng-hide="hasNext()">Next &gt;&gt;</span>
-
-
     </div>
 
-
-</div>
-
 <script src="vendor/jquery/1.11.1/jquery.min.js"></script>
-<script src="vendor/slick/slick.min.js"></script>
+<!--<script src="vendor/slick/slick.min.js"></script>-->
 <script src="vendor/angular/1.2.22/angular.min.js"></script>
 <script src="vendor/angular/1.2.22/angular-touch.min.js"></script>
 <script src="vendor/angular/1.2.22/angular-route.js"></script>
 
 
-<script src="vendor/angular-carousel/angular-carousel.js"></script>
 <script src="vendor/angular-carousel/carousel.js"></script>
 
 <script src="js/controllers.js"></script>

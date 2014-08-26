@@ -27,7 +27,7 @@ var Carousel = function (el, options) {
     for (i in options) {
         if (options.hasOwnProperty(i)) {
             this.options[i] = options[i];
-        }
+    }
     }
 
     this.wrapper.style.overflow = 'hidden';
@@ -160,7 +160,7 @@ Carousel.prototype = {
                 $(this.masterPages[index]).data('upcomingPageIndex', this.page - minusPages < 0 ? this.options.numberOfPages - minusPages : this.page - minusPages);
                 if ($(this.masterPages[index]).data('upcomingPageIndex') !== this.page - minusPages) {
                     this.masterPages[index].style.visibility = 'hidden';
-                }
+        }
             } else {
                 var plusPages = (i - divsOnEachSide);
                 this.masterPages[index].style.left = this.page * 100 + (plusPages * 100) + '%';
@@ -291,7 +291,7 @@ Carousel.prototype = {
         for (var i = 0; i < this.numDivs; i++) {
             this.masterPages[i].className = this.masterPages[i].className.replace(/(^|\s)carousel-loading(\s|$)/, '');		// Remove the loading class
             $(this.masterPages[i]).data('pageIndex', $(this.masterPages[i]).data('upcomingPageIndex'));
-        }
+    }
     },
 
     __event: function (type) {
@@ -388,7 +388,7 @@ angular.module('fundoo.directives', []).directive('carousel', ['$compile', funct
                         timeout = false;
                         resizeCarousel();
                     }
-                }
+        }
             };
         }
     };
