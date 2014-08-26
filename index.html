@@ -24,7 +24,7 @@
         <div class="photo-grid span12">
         <span data-ng-repeat="photo in photos">
             <!--{{getPhotoUrl(photo)}}-->
-          <img ng-src="{{getPhotoUrl(photo)}}">
+          <img ng-src="{{getPhotoUrl(photo)}}" ng-click="sayAlert(photo)">
         </span>
             </div>
         </div>

@@ -6,7 +6,9 @@
 angular.module('app.controllers', ['fundoo.directives'])
     .controller('carouselCtrl', ['$scope', 'FlickrApi', function ($scope, flickr) {
         var carousel;
-
+        $scope.sayAlert = function (photo) {
+            alert(angular.toString(photo));
+        };
         $scope.hasPrevious = function () {
             return carousel ? carousel.hasPrevious() : false;
         };
